@@ -8,7 +8,7 @@
 #include <ncurses.h>
 #include "../../include/define.h"
 #include "../../include/tetris.h"
-#include "../../include/library/_string/include/string.h"
+#include "../../lib/_string/include/string.h"
 
 static void
 print_game(char *filepath, vector2_t position)

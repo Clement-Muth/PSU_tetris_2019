@@ -37,9 +37,17 @@ int main(int ac, char **av)
     else
         if (options->debug)
             debug_mode(options);
+<<<<<<< HEAD
     init_curse(&game);
     process_curse(&game);
     close_curse();
+=======
+    my_put2str(1, options->minos[0]->minos);
+    multi_free("2", create_next_tab(options->minos[0]));
+    /* init_curse(); */
+    /* process_curse(); */
+    /* close_curse(); */
+>>>>>>> 6f9fe84807b7682c1b5a0fb189a7be7c2a8c6bcb
     free_options(options);
     return (0);
 }

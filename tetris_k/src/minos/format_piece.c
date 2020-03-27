@@ -8,28 +8,25 @@
 #include "../../include/my.h"
 #include "../../include/minos.h"
 
-static char *format_line(char asterisks)
+static char *format_line(char *line, int width)
 {
+    char *new_line = malloc(width);
     int i = 0;
-    char *new_line = malloc(asterisks * 2);
 
     if (new_line == NULL)
         return (NULL);
-    while (asterisks) {
-        new_line[i++] = '*';
-        if (--asterisks)
+    while (*line) {
+        if (i != 0)
             new_line[i++] = ' ';
+        new_line[i] = *line++;
+        ++i;
     }
-    new_line[i] = '\0';
+    while (i < width) {
+        new_line[i] = ' ';
+        ++i;
+    }
+    new_line[width - 1] = '\0';
     return (new_line);
-}
-
-static void free_done(char **to_free, int done)
-{
-    --done;
-    while (done != -1) {
-        free(to_free[done--]);
-    }
 }
 
 int format_piece(minos_t *new, char **piece)
@@ -37,8 +34,8 @@ int format_piece(minos_t *new, char **piece)
     if (!(new->minos = malloc(sizeof(char *) * (new->height + 1))))
         return (1);
     for (int i = 0; i < new->height; ++i) {
-        if (!(new->minos[i] = format_line((char)count_asterisk(piece[i])))) {
-            free_done(new->minos, i);
+        if (!(new->minos[i] = format_line(piece[i], new->width * 2))) {
+            free_done((void **)new->minos, i);
             return (1);
         }
     }

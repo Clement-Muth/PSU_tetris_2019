@@ -30,6 +30,8 @@ SRC	:=	$(FSRC)main.c	\
 		$(FMINOS)get_file.c	\
 		$(FMINOS)adapt_minos.c	\
 		$(FMINOS)print_minos.c	\
+		$(FMINOS)next_tab.c	\
+		$(FMINOS)rotate_minos.c	\
 
 NAME	:=	tetris
 

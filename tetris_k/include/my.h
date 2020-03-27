@@ -71,6 +71,7 @@ char *my_calloc(int type, int len);  //malloc filling the string with '\0'
 int freeif(void *elem);  //free if it exists
 int freeif_2d(void **);  //free a 2d array if it exists
 void multi_free(char *str, ...);  //frees he things you give him
+void free_done(void **thing, int done);
 
 //math
 int my_sqr(int nb, int pow);  //squares a number

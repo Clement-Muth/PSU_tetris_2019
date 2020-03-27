@@ -19,5 +19,6 @@ int format_piece(minos_t *new, char **piece);
 int count_asterisk(char *line);
 int check_file(char **file, minos_t *minos);
 minos_t *read_minos(char *directory);
+char **create_next_tab(minos_t *minos);
 
 #endif // __MINOS_H_
