@@ -35,9 +35,11 @@ int main(int ac, char **av)
     else
         if (options->debug)
             debug_mode(options);
-    init_curse();
-    process_curse();
-    close_curse();
+    my_put2str(1, options->minos[0]->minos);
+    multi_free("2", create_next_tab(options->minos[0]));
+    /* init_curse(); */
+    /* process_curse(); */
+    /* close_curse(); */
     free_options(options);
     return (0);
 }

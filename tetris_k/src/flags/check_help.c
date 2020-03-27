@@ -6,7 +6,7 @@
 */
 
 #include "../../include/my.h"
-#include "../../include/library/_open/include/openf.h"
+#include "../../lib/_open/include/openf.h"
 
 static void print_help(void)
 {

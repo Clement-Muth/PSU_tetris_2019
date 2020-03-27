@@ -31,6 +31,7 @@ SRC	:=	my_putchar.c	\
 		my_revstr.c	\
 		my_swap.c	\
 		square.c	\
+		free_done.c	\
 
 CFLAGS	+=	-Wall -Werror
 
