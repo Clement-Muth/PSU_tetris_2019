@@ -9,7 +9,7 @@
 #include "../../include/minos.h"
 #include <dirent.h>
 
-minos_t *read_minos(char *directory)
+minos_t *read_minos(char *directory, vector2_t dim)
 {
     DIR *dir;
     struct dirent *dirent;
@@ -21,7 +21,7 @@ minos_t *read_minos(char *directory)
         return (NULL);
     }
     while ((dirent = readdir(dir))) {
-        if (fill_minos(&minos, dirent->d_name)) {
+        if (fill_minos(&minos, dirent->d_name, dim)) {
             closedir(dir);
             return (NULL);
         }
