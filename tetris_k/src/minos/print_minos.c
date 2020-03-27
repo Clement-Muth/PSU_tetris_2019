@@ -8,9 +8,27 @@
 #include "../../include/my.h"
 #include "../../include/minos.h"
 
+static int line_length(char *line)
+{
+    int ret = 0;
+
+    if (!line)
+        return (0);
+    while (*line) {
+        ++ret;
+        ++line;
+    }
+    --line;
+    while (*line == ' ') {
+        --ret;
+        --line;
+    }
+    return (ret);
+}
+
 static void print_line(char *line)
 {
-    int len = my_strlen(line);
+    int len = line_length(line);
     int i = 0;
 
     while (i < len) {
