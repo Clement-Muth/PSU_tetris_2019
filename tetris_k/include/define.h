@@ -9,5 +9,8 @@
 #define DEFINE_H_
 
 #define ELEMENT game->element
+#define MINOS option->minos
+#define MAP game->game_arr
+#define ODIM option->dim
 
 #endif /* !DEFINE_H_ */

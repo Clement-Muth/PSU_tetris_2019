@@ -5,28 +5,34 @@
 ** inits and close curse window
 */
 
+#include "../../include/define.h"
 #include "../../include/my.h"
 #include "../../include/tetris.h"
+#include "../../include/library/_string/include/string.h"
 
-static void init_curse_struct(game_t *game)
+static void init_curse_struct(game_t *game, options_t *option)
 {
+    int i = 0;
+
     game->in_game = true;
     game->catch = '\0';
-    game->element.filepath = malloc(sizeof(char *) * 3);
-    game->element.filepath[0] = "data/title_game.txt";
-    game->element.filepath[1] = "data/score.txt";
-    game->element.filepath[2] = "data/game.txt";
-    game->game_arr = malloc(sizeof(char *) * 30);
-    game->element.position = (vector2_t []){{1, 0}, {1, 7}, {31, 0}};
+    ELEMENT.filepath = malloc(sizeof(char *) * 3);
+    ELEMENT.filepath[0] = "data/title_game.txt";
+    ELEMENT.filepath[1] = "data/score.txt";
+    ELEMENT.filepath[2] = "data/game.txt";
+    ELEMENT.position = (vector2_t []){{1, 0}, {1, 7}, {31, 0}};
+    MAP = malloc(sizeof(char *) * ODIM.y);
+    for (i = 0; ODIM.y != i; i++) MAP[i] = _memalloc(MAP[i], ODIM.x);
+    MAP[i] = NULL;
 }
 
-void init_curse(game_t *game)
+void init_curse(game_t *game, options_t *option)
 {
     initscr();
     keypad(stdscr, TRUE);
     cbreak();
     echo();
-    init_curse_struct(game);
+    init_curse_struct(game, option);
 }
 
 void close_curse(void)

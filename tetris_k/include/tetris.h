@@ -58,9 +58,9 @@ int debug_mode(options_t *options);
 int fill_flags(int flags_tab[11], int pos, char *arg);
 void adapt_flags(options_t *options, int flags_tab[11]);
 
-void init_curse(game_t *game);
-void process_curse(game_t *game);
-void display_tetriminos(game_t *game);
+void init_curse(game_t *game, options_t *option);
+void process_curse(game_t *game, options_t *option);
+void display_tetriminos(game_t *game, options_t *option);
 void close_curse(void);
 
 minos_t *read_minos(char *directory);

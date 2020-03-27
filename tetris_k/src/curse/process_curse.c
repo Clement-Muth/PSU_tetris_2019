@@ -27,13 +27,13 @@ print_game(char *filepath, vector2_t position)
 }
 
 void
-process_curse(game_t *game)
+process_curse(game_t *game, options_t *option)
 {
     while (game) {
         clear();
         for (int i = 0; i != 3; i++)
             print_game(ELEMENT.filepath[i], ELEMENT.position[i]);
-        display_tetriminos(game);
+        display_tetriminos(game, option);
         game->catch = getch();
         usleep(1000000);
     }

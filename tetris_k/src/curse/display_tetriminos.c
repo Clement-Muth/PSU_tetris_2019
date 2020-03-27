@@ -10,26 +10,16 @@
 #include "../../include/tetris.h"
 #include "../../include/library/_string/include/string.h"
 
-static void
-init_tetriminos(game_t *game)
-{
-    game->element.tetriminos = malloc(sizeof(char *) * 3);
-    game->element.tetriminos[0] = "tetriminos/1.tetriminos";
-    game->element.tetriminos[1] = "tetriminos/2.tetriminos";
-    game->element.tetriminos[2] = "tetriminos/3.tetriminos";
-}
-
 void
-display_tetriminos(game_t *game)
+display_tetriminos(game_t *game, options_t *option)
 {
-    int tetriminos_alea = rand() % 3;
-    char *lineptr = NULL;
-    size_t nread = 500;
-    FILE *stream;
+    int tetriminos_alea = rand() % 2;
 
-    init_tetriminos(game);
-    stream = fopen(ELEMENT.tetriminos[tetriminos_alea], "r");
-    getline(&lineptr, &nread, stream);
-    for (int i = 0; lineptr[i]; i++)
-        mvaddch(30, 30, lineptr[i]);
+    for (int i = 0; (MINOS[tetriminos_alea]->height * 2) != i; i++) {
+        for (int n = 0; (MINOS[tetriminos_alea]->width * 2) != n; n++)
+            MAP[i][n] = MINOS[tetriminos_alea]->minos[i][n];
+    }
+    for (int i = 0; (MINOS[tetriminos_alea]->height * 2) != i; i++)
+        for (int n = 0; (MINOS[tetriminos_alea]->width * 2) != n; n++)
+            mvaddch(i + 10, n + 40, MAP[i][n]);
 }
