@@ -24,7 +24,9 @@ void free_options(options_t *options)
 int main(int ac, char **av)
 {
     options_t *options;
+    game_t game;
 
+    srand(getpid() * time(NULL));
     if (is_help(av))
         return (0);
     options = init_options(ac, av);
@@ -35,8 +37,8 @@ int main(int ac, char **av)
     else
         if (options->debug)
             debug_mode(options);
-    init_curse();
-    process_curse();
+    init_curse(&game);
+    process_curse(&game);
     close_curse();
     free_options(options);
     return (0);

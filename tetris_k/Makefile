@@ -21,6 +21,7 @@ SRC	:=	$(FSRC)main.c	\
 		$(FFLAG)debug_mode.c	\
 		$(FCURSE)init_curse.c	\
 		$(FCURSE)process_curse.c	\
+		$(FCURSE)display_tetriminos.c	\
 		$(FMINOS)read_minos.c	\
 		$(FMINOS)checker.c	\
 		$(FMINOS)count_asterisk.c	\
@@ -54,12 +55,12 @@ CLEAR	:=	\033[2K
 
 all:	$(NAME)
 
-$(NAME):	$(OBJ)	make_all
+$(NAME):	make_all $(OBJ)
 	@$(CC)  $(OBJ) -o $(NAME) $(LDFLAGS)
 	@echo -e "$(CLEAR)$(NAME) : $(COLOR)OK$(WHITE)"
 
 %.o:	%.c
-	@$(CC) -o $@ -c $< $(CFLAGS)
+	@$(CC) -o $@ -c $< -g $(CFLAGS)
 	@echo -ne "$(CLEAR)Compiled $< : $(COLOR)OK$(WHITE)\r"
 
 clean:	make_clean

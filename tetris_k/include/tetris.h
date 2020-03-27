@@ -24,6 +24,22 @@ typedef struct minos_s
     struct minos_s *next;
 } minos_t;
 
+typedef struct element_s
+{
+    char **filepath;
+    char **tetriminos;
+    vector2_t *position;
+} element_t;
+
+
+typedef struct game_s
+{
+    bool in_game;
+    char catch;
+    char **game_arr;
+    element_t element;
+} game_t;
+
 typedef struct options_s
 {
     minos_t **minos;
@@ -42,8 +58,9 @@ int debug_mode(options_t *options);
 int fill_flags(int flags_tab[11], int pos, char *arg);
 void adapt_flags(options_t *options, int flags_tab[11]);
 
-void init_curse(void);
-void process_curse(void);
+void init_curse(game_t *game);
+void process_curse(game_t *game);
+void display_tetriminos(game_t *game);
 void close_curse(void);
 
 minos_t *read_minos(char *directory);
