@@ -13,13 +13,15 @@
 void
 display_tetriminos(game_t *game, options_t *option)
 {
-    int tetriminos_alea = rand() % 2;
+    int tetriminos_alea = 0;
 
-    for (int i = 0; (MINOS[tetriminos_alea]->height * 2) != i; i++) {
-        for (int n = 0; (MINOS[tetriminos_alea]->width * 2) != n; n++)
+    // printf("%d::%d::%d\n", MINOS_ALEA_Y, MINOS_ALEA_X, MINOS[tetriminos_alea]->width);
+    for (int i = 0; MINOS_ALEA_Y != i; i++)
+        for (int n = 0; MINOS_ALEA_X != n; n++) {
             MAP[i][n] = MINOS[tetriminos_alea]->minos[i][n];
-    }
-    for (int i = 0; (MINOS[tetriminos_alea]->height * 2) != i; i++)
-        for (int n = 0; (MINOS[tetriminos_alea]->width * 2) != n; n++)
+        }
+    for (int i = 0; MINOS_ALEA_Y; i++)
+        for (int n = 0; MINOS_ALEA_X; n++)
             mvaddch(i + 10, n + 40, MAP[i][n]);
+    exit(0);
 }

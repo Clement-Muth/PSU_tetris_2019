@@ -23,7 +23,6 @@ static void init_curse_struct(game_t *game, options_t *option)
     ELEMENT.position = (vector2_t []){{1, 0}, {1, 7}, {31, 0}};
     MAP = malloc(sizeof(char *) * ODIM.y);
     for (i = 0; ODIM.y != i; i++) MAP[i] = _memalloc(MAP[i], ODIM.x);
-    MAP[i] = NULL;
 }
 
 void init_curse(game_t *game, options_t *option)

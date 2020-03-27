@@ -30,7 +30,7 @@ directory 			= ../../include/library/_string
 
 all:				| $(directory) $(LIB)
 					@cp -rf include/ $(directory)
-					@$(call SUCCESS, "[ OK ] include has benn correctly copied into ../../include/library/_string/")
+					@$(call SUCCESS, "[ OK ] include has been correctly copied into ../../include/library/_string/")
 					@$(call DONE, "[ DONE 100% ]")
 
 $(directory):
