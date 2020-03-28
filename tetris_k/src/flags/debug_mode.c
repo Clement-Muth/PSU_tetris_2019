@@ -11,6 +11,8 @@
 
 int debug_mode(options_t *options)
 {
+    char *input = NULL;
+
     my_putstr (1, "*** DEBUG MODE ***\n");
     my_printf (1, "Key Left :    |%c %d|\n", BINDS[0], BINDS[0]);
     my_printf (1, "Key Right :    |%c %d|\n", BINDS[1], BINDS[1]);
@@ -22,6 +24,7 @@ int debug_mode(options_t *options)
     my_printf(1, "Level :    %d\n", options->level);
     my_printf (1, "dim :    %d*%d\n", options->dim.y, options->dim.x);
     print_minos(options->minos);
-    my_putstr(1, "wait key press\n");
+    my_putstr(1, "Press any key\n");
+    read(0, &input, 1);
     return (0);
 }

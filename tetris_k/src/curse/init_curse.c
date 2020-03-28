@@ -22,7 +22,11 @@ static void init_curse_struct(game_t *game, options_t *option)
     ELEMENT.filepath[2] = "data/game.txt";
     ELEMENT.position = (vector2_t []){{1, 0}, {1, 7}, {31, 0}};
     MAP = malloc(sizeof(char *) * ODIM.y);
-    for (i = 0; ODIM.y != i; i++) MAP[i] = _memalloc(MAP[i], ODIM.x);
+    for (i = 0; ODIM.y != i; i++) {
+        MAP[i] = malloc(ODIM.x);
+        for (int n = 0; n != ODIM.x; n++)
+            MAP[i][n] = ' ';
+    }
 }
 
 void init_curse(game_t *game, options_t *option)
