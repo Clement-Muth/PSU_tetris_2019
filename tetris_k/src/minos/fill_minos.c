@@ -23,7 +23,7 @@ static void add_minos(minos_t **minos, char *filename, vector2_t dim)
     }
     new->name = my_strndup(filename, my_strfind(filename, ".tetrimino"));
     new->next = *minos;
-    new->pos.x = dim.x / 2;
+    new->pos.x = ((dim.x) - (new->width + 1));
     new->pos.y = 0;
     *minos = new;
     multi_free("2", file);

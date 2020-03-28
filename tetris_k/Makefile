@@ -21,7 +21,9 @@ SRC	:=	$(FSRC)main.c	\
 		$(FFLAG)debug_mode.c	\
 		$(FCURSE)init_curse.c	\
 		$(FCURSE)process_curse.c	\
+		$(FCURSE)utilities_curse.c	\
 		$(FCURSE)display_tetriminos.c	\
+		$(FCURSE)create_map.c	\
 		$(FMINOS)read_minos.c	\
 		$(FMINOS)checker.c	\
 		$(FMINOS)count_asterisk.c	\
@@ -32,6 +34,7 @@ SRC	:=	$(FSRC)main.c	\
 		$(FMINOS)print_minos.c	\
 		$(FMINOS)next_tab.c	\
 		$(FMINOS)rotate_minos.c	\
+		$(FMINOS)free_minos.c	\
 
 NAME	:=	tetris
 

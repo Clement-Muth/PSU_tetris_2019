@@ -20,5 +20,6 @@ int count_asterisk(char *line);
 int check_file(char **file, minos_t *minos);
 minos_t *read_minos(char *directory, vector2_t dim);
 char **create_next_tab(minos_t *minos);
+void destroy_minos(minos_t *minos);
 
 #endif // __MINOS_H_

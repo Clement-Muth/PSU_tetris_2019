@@ -14,6 +14,14 @@ typedef struct vector2_s
     int y;
 } vector2_t;
 
+typedef struct collision_s
+{
+    bool left;
+    bool right;
+    bool down;
+} collision_t;
+
+
 typedef struct minos_s
 {
     char **minos;
@@ -22,6 +30,7 @@ typedef struct minos_s
     char height;
     char color;
     vector2_t pos;
+    collision_t collision;
     struct minos_s *next;
 } minos_t;
 
@@ -60,9 +69,17 @@ int fill_flags(int flags_tab[11], int pos, char *arg);
 void adapt_flags(options_t *options, int flags_tab[11]);
 
 void init_curse(game_t *game, options_t *option);
+void display_map(game_t *game, options_t *option);
 void process_curse(game_t *game, options_t *option);
-void display_tetriminos(game_t *game, options_t *option);
 void close_curse(void);
+
+void display_tetriminos(game_t *game, options_t *option, minos_t *minos);
+void print_game_elements(char *filepath, vector2_t position);
+void print_next(char **next, int map_width);
+
+char **create_map(options_t *option);
+
+minos_t *get_random(minos_t **minos);
 
 minos_t *read_minos(char *directory, vector2_t dim);
 
