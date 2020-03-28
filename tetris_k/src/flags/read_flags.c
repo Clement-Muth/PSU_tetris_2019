@@ -10,7 +10,7 @@
 #include "../../include/minos.h"
 #include <getopt.h>
 
-int find_pos(char _char, char *str)
+static int find_pos(char _char, char *str)
 {
     for (int i = 0; str[i]; ++i)
         if (_char == str[i])
@@ -18,7 +18,7 @@ int find_pos(char _char, char *str)
     return (-1);
 }
 
-int read_flags(int flags_tab[11], struct option long_options[],
+static int read_flags(int flags_tab[11], struct option long_options[],
                 int ac, char **av)
 {
     int opt;
@@ -42,7 +42,7 @@ int read_flags(int flags_tab[11], struct option long_options[],
 options_t *init_options(int ac, char **av)
 {
     options_t *options = malloc(sizeof(options_t));
-    int flags_tab[11] = {0, 'q', 'd', 'a', 's', 'l', 'p', 0, 0, 20, 10};
+    int flags_tab[11] = {0, 'q', 'd', 'a', 's', 'l', 'p', 0, 0, 10, 20};
     struct option long_options[] = {
         {"level", 1, 0, 0}, {"key-left", 1, 0, 0},
         {"key-right", 1, 0, 0}, {"key-turn", 1, 0, 0},
@@ -56,6 +56,6 @@ options_t *init_options(int ac, char **av)
         return (NULL);
     read_flags(flags_tab, long_options,  ac, av);
     adapt_flags(options, flags_tab);
-    options->minos = adapt_minos(read_minos("tetriminos"));
+    options->minos = adapt_minos(read_minos("tetriminos", options->dim));
     return (options);
 }

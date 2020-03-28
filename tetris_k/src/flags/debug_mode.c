@@ -20,9 +20,8 @@ int debug_mode(options_t *options)
     my_printf (1, "Key Pause :    |%c %d|\n", BINDS[5], BINDS[4]);
     my_printf (1, "Next :    %s\n", (options->no_next ? "No": "Yes"));
     my_printf(1, "Level :    %d\n", options->level);
-    my_printf (1, "dim :    %d*%d\n", options->dim.x, options->dim.y);
+    my_printf (1, "dim :    %d*%d\n", options->dim.y, options->dim.x);
     print_minos(options->minos);
     my_putstr(1, "wait key press\n");
-    read(0, NULL, 1);
     return (0);
 }

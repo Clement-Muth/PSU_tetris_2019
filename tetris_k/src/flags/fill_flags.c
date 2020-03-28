@@ -40,12 +40,12 @@ static int read_dim(int flags_tab[11], char *arg)
        return (1);
     }
     destroy_regex(&regex);
-    flags_tab[9] = my_atoie(arg);
+    flags_tab[10] = my_atoie(arg);
     while (arg[index] != ',' && arg[index])
         ++index;
     if (arg[index] == '\0')
         return (1);
-    flags_tab[10] = my_atoie(arg + index + 1);
+    flags_tab[9] = my_atoie(arg + index + 1);
     if (flags_tab[9] <= 0 || flags_tab[10] <= 0) {
         return (1);
     }

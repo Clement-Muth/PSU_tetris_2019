@@ -21,6 +21,7 @@ typedef struct minos_s
     char width;
     char height;
     char color;
+    vector2_t pos;
     struct minos_s *next;
 } minos_t;
 
@@ -63,6 +64,6 @@ void process_curse(game_t *game);
 void display_tetriminos(game_t *game);
 void close_curse(void);
 
-minos_t *read_minos(char *directory);
+minos_t *read_minos(char *directory, vector2_t dim);
 
 #endif

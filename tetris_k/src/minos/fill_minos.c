@@ -8,7 +8,7 @@
 #include "../../include/my.h"
 #include "../../include/minos.h"
 
-static void add_minos(minos_t **minos, char *filename)
+static void add_minos(minos_t **minos, char *filename, vector2_t dim)
 {
     char **file = get_file(my_glue_sep("tetriminos", filename ,'/'));
     minos_t *new;
@@ -23,6 +23,8 @@ static void add_minos(minos_t **minos, char *filename)
     }
     new->name = my_strndup(filename, my_strfind(filename, ".tetrimino"));
     new->next = *minos;
+    new->pos.x = dim.x / 2;
+    new->pos.y = 0;
     *minos = new;
     multi_free("2", file);
 }
@@ -42,10 +44,10 @@ static int is_ext(char *str, char *ext)
     return (*str == '\0' && *ext == '\0');
 }
 
-int fill_minos(minos_t **minos, char *name)
+int fill_minos(minos_t **minos, char *name, vector2_t dim)
 {
     if (is_ext(name, ".tetrimino")) {
-        add_minos(minos, name);
+        add_minos(minos, name, dim);
     }
     return (0);
 }
