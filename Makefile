@@ -22,8 +22,11 @@ SRC	:=	$(FSRC)main.c	\
 		$(FCURSE)init_curse.c	\
 		$(FCURSE)process_curse.c	\
 		$(FCURSE)utilities_curse.c	\
-		$(FCURSE)display_tetriminos.c	\
+		$(FCURSE)display/display_game.c	\
+		$(FCURSE)process/process_display.c	\
+		$(FCURSE)process/process_next_minos.c	\
 		$(FCURSE)create_map.c	\
+		$(FCURSE)checker.c	\
 		$(FMINOS)read_minos.c	\
 		$(FMINOS)checker.c	\
 		$(FMINOS)count_asterisk.c	\

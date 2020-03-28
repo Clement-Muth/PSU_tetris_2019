@@ -15,50 +15,50 @@
 static void
 check_collision(game_t *game, minos_t *minos)
 {
-    if (game->game_arr[minos->pos.y + minos->height + 1][minos->pos.x] != ' ')
+    if (game->game_arr[minos->pos.y + minos->height][minos->pos.x] != ' ') {
+        mvprintw(0, 0, "touched !!\n");
         minos->collision.down = true;
-}
-
-static int
-process_current_minos(game_t *game, minos_t *minos)
-{
-    return (0);
+    } else
+        minos->collision.down = false;
 }
 
 static int
 process_descent_minos(game_t *game, minos_t *minos)
 {
-    ++minos->pos.y;
+    minos->pos.y++;
     check_collision(game, minos);
-    return (COLLISION.down) ? (1) : (0);
+    return (COLLISION.down) ? (true) : (false);
 }
 
 void
-process_curse(game_t *game, options_t *option)
+add_to_map(game_t *game, options_t *option, minos_t *minos)
 {
-    minos_t *current = get_random(option->minos);
-    minos_t *next = get_random(option->minos);
-    char **next_tab = create_next_tab(next);
-    clock_t begin = clock();
-    clock_t ellapsed = 0;
-    int level_time_descent = RATIO_TIME;
+    int y_max = minos->pos.y + minos->height;
+    int x_max = minos->pos.x + minos->width * 2;
 
-    while (game) {
-        ellapsed = clock() - begin;
-        for (int i = 0; i != NB_ELEMENT; i++)
-            print_game_elements(ELEMENT.filepath[i], ELEMENT.position[i]);
-        if (!option->no_next) print_next(next_tab, ODIM.x);
-        display_map(game, option);
-        display_tetriminos(game, option, current);
-        if (!process_current_minos(game, current) && ellapsed > level_time_descent) {
-            process_descent_minos(game, current);
-            begin = clock();
-        } else if (process_current_minos(game, current)) {
-            freeif_2d((void **)next_tab);
-            destroy_minos(current);
-            current = next;
-            next = get_random(option->minos);
-            next_tab = create_next_tab(next);
+    for (int i = minos->pos.y; i < y_max;++i)
+        for (int j = minos->pos.x; j < x_max; ++j)
+            game->game_arr[i][j] = (minos->minos[i - minos->pos.y][j - minos->pos.x] != ' ') ?
+                ('*') : (game->game_arr[i][j]);
+}
+
+void
+process_curse(root_t *root)
+{
+    char **next_tab;
+
+    GAME_CURRENT = get_random(OPT->minos);
+    GAME->next = get_random(OPT->minos);
+    next_tab = create_next_tab(GAME->next);
+    while (GAME->in_game) {
+        process_display(root, next_tab);
+        if (CLOCK.ellapsed > CLOCK.level_time_descent) {
+            GAME_CURRENT->current = process_descent_minos(GAME, GAME_CURRENT);
+            CLOCK.begin = clock();
+        }
+        if (GAME_CURRENT->current) {
+            process_next_minos(root, next_tab);
+            clear();
         }
         refresh();
     }

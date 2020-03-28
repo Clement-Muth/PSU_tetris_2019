@@ -70,7 +70,6 @@ char **create_next_tab(minos_t *minos)
 
     if (ret) {
         second_layer(ret, minos);
-        my_put2str(1, ret);
     }
     return (ret);
 }

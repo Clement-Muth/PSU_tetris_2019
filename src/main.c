@@ -9,6 +9,8 @@
 #include "../include/list.h"
 #include "../include/regex.h"
 #include "../include/minos.h"
+#include "../include/struct.h"
+#include "../include/define.h"
 #include <time.h>
 
 void free_options(options_t *options)
@@ -24,23 +26,24 @@ void free_options(options_t *options)
 
 int main(int ac, char **av)
 {
-    options_t *options;
-    game_t game;
+    root_t root;
 
+    root.game = malloc(sizeof(game_t));
+    root.option = malloc(sizeof(options_t));
     srand(getpid() * time(NULL));
     if (is_help(av))
         return (0);
-    options = init_options(ac, av);
-    if (options == NULL)
+    root.option = init_options(ac, av);
+    if (root.option == NULL)
         return (84);
-    if (options->minos == NULL)
+    if (root.option->minos == NULL)
         printf("minos == NULL\n");
     else
-        if (options->debug)
-            debug_mode(options);
-    init_curse(&game, options);
-    process_curse(&game, options);
+        if (root.option->debug)
+            debug_mode(root.option);
+    init_curse(&root);
+    process_curse(&root);
     close_curse();
-    free_options(options);
+    free_options(root.option);
     return (0);
 }

@@ -10,7 +10,7 @@
 
 static void add_minos(minos_t **minos, char *filename, vector2_t dim)
 {
-    char **file = get_file(my_glue_sep("tetriminos", filename ,'/'));
+    char **file = get_file(my_glue_sep("tetriminos", filename, '/'));
     minos_t *new;
 
     if (!file || (!(new = malloc(sizeof(minos_t))))) {
@@ -24,7 +24,8 @@ static void add_minos(minos_t **minos, char *filename, vector2_t dim)
     new->name = my_strndup(filename, my_strfind(filename, ".tetrimino"));
     new->next = *minos;
     new->pos.x = ((dim.x) - (new->width + 1));
-    new->pos.y = 0;
+    new->pos.y = 1;
+    new->current = false;
     *minos = new;
     multi_free("2", file);
 }

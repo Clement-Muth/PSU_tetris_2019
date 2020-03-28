@@ -6,10 +6,10 @@
 */
 
 #include <ncurses.h>
-#include "../../include/define.h"
-#include "../../include/minos.h"
-#include "../../include/library/_string/include/string.h"
-#include "../../include/my.h"
+#include "../../../include/define.h"
+#include "../../../include/minos.h"
+#include "../../../include/library/_string/include/string.h"
+#include "../../../include/my.h"
 
 void
 print_game_elements(char *filepath, vector2_t position)
@@ -39,11 +39,11 @@ static void
 print_char(minos_t *minos, int i, int n)
 {
     if (minos->minos[i][n] != ' ');
-        mvaddch(minos->pos.y + i + 1, minos->pos.x + 37 + n, minos->minos[i][n]);
+        mvaddch(minos->pos.y + i, minos->pos.x + 37 + n, minos->minos[i][n]);
 }
 
 void
-display_tetriminos(game_t *game, options_t *option, minos_t *minos)
+display_tetriminos(minos_t *minos)
 {
     for (int i = 0; minos->minos[i]; i++)
         for (int n = 0; minos->minos[i][n]; n++)
@@ -51,7 +51,7 @@ display_tetriminos(game_t *game, options_t *option, minos_t *minos)
 }
 
 void
-display_map(game_t *game, options_t *option)
+display_map(root_t *root)
 {
     for (int i = 0; MAP[i]; i++)
         for (int n = 0; MAP[i][n]; n++)

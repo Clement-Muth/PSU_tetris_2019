@@ -10,7 +10,7 @@
 #include "../../include/minos.h"
 
 static void
-middle(options_t *option, char **tab, char *texture)
+middle(root_t *root, char **tab, char *texture)
 {
     int height = ODIM.y + 2;
     int width = ODIM.x * 2 - 1;
@@ -26,7 +26,7 @@ middle(options_t *option, char **tab, char *texture)
 }
 
 static void
-top_bottom(options_t *option, char **tab, char *texture)
+top_bottom(root_t *root, char **tab, char *texture)
 {
     int height = ODIM.y + 2;
     int width = ODIM.x * 2 - 1;
@@ -44,7 +44,7 @@ top_bottom(options_t *option, char **tab, char *texture)
 }
 
 char **
-create_map(options_t *option)
+create_map(root_t *root)
 {
     char **map = malloc(sizeof(char *) * (ODIM.y + 3));
 
@@ -54,7 +54,7 @@ create_map(options_t *option)
         if ((map[i] = malloc((ODIM.x * 2))) == NULL)
             free_done((void **)map, i);
     }
-    top_bottom(option, map, "+-++-+");
-    middle(option, map, "| |");
+    top_bottom(root, map, "+-++-+");
+    middle(root, map, "| |");
     return (map);
 }
