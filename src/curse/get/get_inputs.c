@@ -41,7 +41,7 @@ static void rotate(root_t *root)
     for (int i = GAME_CURRENT->pos.y; i < ODIM.y && i < height)
         for (int n = GAME_CURRENT->pos.x; n < ODIM.x && n < width; ++n) {
             if (MAP[n][i] != ' ')
-                return
+                return;
         }
         */
     rotate_minos(GAME_CURRENT);
