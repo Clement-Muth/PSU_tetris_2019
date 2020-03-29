@@ -35,6 +35,15 @@ void add_to_map(game_t *game, options_t *option, minos_t *minos)
         add_line(game, option, minos, i);
 }
 
+static void ask_resize(root_t *root)
+{
+    while (COLS < (35 + ODIM.x * 4) || LINES < ODIM.y + 3) {
+        mvprintw(LINES / 2, COLS / 2, "Resize pls !");
+        refresh();
+        clear();
+    }
+}
+
 void process_curse(root_t *root)
 {
     char **next_tab;
@@ -43,6 +52,7 @@ void process_curse(root_t *root)
     GAME_NEXT = get_random(OPT->minos);
     next_tab = create_next_tab(GAME_NEXT);
     while (GAME->in_game) {
+        ask_resize(root);
         process_display(root, next_tab);
         GAME->lines += check_lines(root);
         CLOCK.ellapsed = clock() - CLOCK.begin;
