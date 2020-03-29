@@ -29,6 +29,7 @@ void close_curse(void);
 void display_tetriminos(minos_t *minos);
 void print_game_elements(char *filepath, vector2_t position);
 void print_next(char **next, int map_width);
+void print_time(clock_t *clock, vector2_t pos);
 
 void add_to_map(game_t *game, options_t *option, minos_t *minos);
 
@@ -39,6 +40,7 @@ minos_t *get_random(minos_t **minos);
 minos_t *read_minos(char *directory, vector2_t dim);
 
 int check_lines(root_t *root);
+int get_inputs(root_t *root);
 
 /*          Process_display         */
 void process_display(root_t *root, char **next_tab);

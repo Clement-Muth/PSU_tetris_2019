@@ -15,13 +15,13 @@ middle(root_t *root, char **tab, char *texture)
     int height = ODIM.y + 2;
     int width = ODIM.x * 2 - 1;
 
-    tab[(int)height] = NULL;
+    tab[height] = NULL;
     for (int i = 1; i < height - 1; ++i) {
         for (int j = 1; j < width - 1; ++j)
             tab[i][j] = texture[1];
         tab[i][0] = texture[0];
-        tab[i][(int)width - 1] = texture[2];
-        tab[i][(int)width] = '\0';
+        tab[i][width - 1] = texture[2];
+        tab[i][width] = '\0';
     }
 }
 
@@ -39,8 +39,8 @@ top_bottom(root_t *root, char **tab, char *texture)
         tab[0][i] = texture[1];
         tab[height - 1][i] = texture[4];
     }
-    tab[0][(int)width] = '\0';
-    tab[(int)height - 1][(int)width] = '\0';
+    tab[0][width] = '\0';
+    tab[height - 1][width] = '\0';
 }
 
 char **

@@ -14,3 +14,4 @@
 #include <stdarg.h>
 #include <fcntl.h>
 #include "curses.h"
+#include <ncurses.h>

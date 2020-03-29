@@ -12,8 +12,7 @@
 #include "../../../lib/_string/include/string.h"
 #include <time.h>
 
-void
-process_next_minos(root_t *root, char **next_tab)
+void process_next_minos(root_t *root, char **next_tab)
 {
     add_to_map(GAME, root->option, GAME_CURRENT);
     freeif_2d((void **)next_tab);

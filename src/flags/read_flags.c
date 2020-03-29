@@ -42,7 +42,7 @@ static int read_flags(int flags_tab[11], struct option long_options[],
 options_t *init_options(int ac, char **av)
 {
     options_t *options = malloc(sizeof(options_t));
-    int flags_tab[11] = {0, 'q', 'd', 'a', 's', 'l', 'p', 0, 0, 10, 20};
+    int flags_tab[11] = {0, 260, 261, 259, 258, 'q', ' ', 0, 0, 10, 20};
     struct option long_options[] = {
         {"level", 1, 0, 0}, {"key-left", 1, 0, 0},
         {"key-right", 1, 0, 0}, {"key-turn", 1, 0, 0},
@@ -54,7 +54,10 @@ options_t *init_options(int ac, char **av)
 
     if (options == NULL)
         return (NULL);
-    read_flags(flags_tab, long_options,  ac, av);
+    if (read_flags(flags_tab, long_options,  ac, av) == 84) {
+        free(options);
+        return (NULL);
+    }
     adapt_flags(options, flags_tab);
     options->minos = adapt_minos(read_minos("tetriminos", options->dim));
     return (options);

@@ -22,8 +22,6 @@ destroy_line(char **map, int line)
 static bool
 is_filled(root_t *root, char *line)
 {
-    int width = ODIM.x * 2;
-    int nb = 0;
     int ret = 0;
 
     for (int i = 0; line[i]; ++i)

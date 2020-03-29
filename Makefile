@@ -7,11 +7,11 @@
 
 FSRC	:=	src/
 
-FMINOS	:=	$(FSRC)/minos/
+FMINOS	:=	$(FSRC)minos/
 
-FFLAG	:=	$(FSRC)/flags/
+FFLAG	:=	$(FSRC)flags/
 
-FCURSE	:=	$(FSRC)/curse/
+FCURSE	:=	$(FSRC)curse/
 
 SRC	:=	$(FSRC)main.c	\
 		$(FFLAG)read_flags.c	\
@@ -27,6 +27,8 @@ SRC	:=	$(FSRC)main.c	\
 		$(FCURSE)process/process_next_minos.c	\
 		$(FCURSE)create_map.c	\
 		$(FCURSE)checker.c	\
+		$(FCURSE)print_timer.c	\
+		$(FCURSE)get_inputs.c	\
 		$(FMINOS)read_minos.c	\
 		$(FMINOS)checker.c	\
 		$(FMINOS)count_asterisk.c	\
@@ -68,7 +70,7 @@ $(NAME):	make_all $(OBJ)
 	@echo -e "$(CLEAR)$(NAME) : $(COLOR)OK$(WHITE)"
 
 %.o:	%.c
-	@$(CC) -o $@ -c $< -g $(CFLAGS)
+	@$(CC) -o $@ -c $< $(CFLAGS)
 	@echo -ne "$(CLEAR)Compiled $< : $(COLOR)OK$(WHITE)\r"
 
 clean:	make_clean

@@ -14,9 +14,10 @@
 void
 process_display(root_t *root, char **next_tab)
 {
-    for (int i = 0; i != NB_ELEMENT; i++)
-        print_game_elements(ELEMENT.filepath[i], ELEMENT.position[i]);
+    // for (int i = 0; i != NB_ELEMENT; i++)
+    //   print_game_elements(ELEMENT.filepath[i], ELEMENT.position[i]);
     if (!OPT->no_next) print_next(next_tab, ODIM.x);
     display_map(root);
     display_tetriminos(GAME_CURRENT);
+    print_time(&GAME->timerclock, (vector2_t){20, 15});
 }

@@ -14,9 +14,11 @@
 #define OPT root->option
 #define CLOCK GAME->clock
 #define GAME_CURRENT GAME->cur
+#define GAME_NEXT GAME->next
 #define ODIM root->option->dim
 #define ELEMENT GAME->element
 #define MAP GAME->game_arr
+#define R_BINDS root->option->binds
 
 #define NB_ELEMENT 2
 #define MAP_POSITION_LEFT 35
@@ -25,5 +27,7 @@
 #define MAP_WIDTH j + MAP_POSITION_LEFT + 2 + (map_width * 2)
 #define MINOS_ALEA_Y MINOS[tetriminos_alea]->height
 #define MINOS_ALEA_X ((MINOS[tetriminos_alea]->width * 2) - 1)
+#define TRBINDS(x) my_translate(options->binds[x], &good)
+
 
 #endif /* !DEFINE_H_ */

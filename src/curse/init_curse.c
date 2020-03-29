@@ -15,6 +15,7 @@ static void
 init_curse_struct(root_t *root)
 {
     GAME->in_game = true;
+    GAME->timerclock = clock();
     ELEMENT.filepath = malloc(sizeof(char *) * 3);
     ELEMENT.filepath[0] = "data/title_game.txt";
     ELEMENT.filepath[1] = "data/score.txt";
@@ -32,7 +33,8 @@ init_curse(root_t *root)
     initscr();
     keypad(stdscr, TRUE);
     cbreak();
-    echo();
+    noecho();
+    nodelay(stdscr, TRUE);
     init_curse_struct(root);
 }
 

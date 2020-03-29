@@ -11,8 +11,7 @@
 #include "../../include/library/_string/include/string.h"
 #include "../../include/my.h"
 
-static int
-minos_len(minos_t **minos)
+static int minos_len(minos_t **minos)
 {
     int ret = 0;
 
@@ -21,8 +20,7 @@ minos_len(minos_t **minos)
     return (ret);
 }
 
-static minos_t *
-cpy_minos(minos_t *minos)
+static minos_t *cpy_minos(minos_t *minos)
 {
     minos_t *ret = malloc(sizeof(minos_t));
 
@@ -33,11 +31,13 @@ cpy_minos(minos_t *minos)
     ret->width = minos->width;
     ret->height = minos->height;
     ret->pos = minos->pos;
+    ret->color = minos->color;
+    ret->collision = minos->collision;
+    ret->current = false;
     return (ret);
 }
 
-minos_t *
-get_random(minos_t **minos)
+minos_t *get_random(minos_t **minos)
 {
     int mrand = rand() % minos_len(minos);
 

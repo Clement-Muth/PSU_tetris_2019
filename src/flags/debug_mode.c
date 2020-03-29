@@ -7,19 +7,50 @@
 
 #include "../../include/my.h"
 #include "../../include/minos.h"
-#define BINDS options->binds
+static char *stringize(int c)
+{
+    char *ret = malloc(2);
+
+    ret[0] = (char)c;
+    ret[1] = '\0';
+    return (ret);
+}
+
+static char *my_translate(int c, int *good)
+{
+    int trans_i[5] = {32, 258, 259, 260, 261};
+    char *trans_a[5] = {"(space)", "^EOB", "^EOA", "^EOD", "^EOC"};
+
+    for (int i = 0; i < 5; ++i) {
+        if (c == trans_i[i]) {
+            return(trans_a[i]);
+        }
+    }
+    *good = 1;
+    return (stringize(c));
+}
+
+static void special_print(options_t *options, char *text, int index)
+{
+    int good = 0;
+    char *str = TRBINDS(index);
+
+    my_printf(1, text, str);
+    if (good)
+        free(str);
+}
 
 int debug_mode(options_t *options)
 {
     char *input = NULL;
 
     my_putstr (1, "*** DEBUG MODE ***\n");
-    my_printf (1, "Key Left :    |%c %d|\n", BINDS[0], BINDS[0]);
-    my_printf (1, "Key Right :    |%c %d|\n", BINDS[1], BINDS[1]);
-    my_printf (1, "Key Turn :    |%c %d|\n", BINDS[2], BINDS[2]);
-    my_printf (1, "Key Drop :    |%c %d|\n", BINDS[3], BINDS[3]);
-    my_printf (1, "Key Quit :    |%c %d|\n", BINDS[4], BINDS[4]);
-    my_printf (1, "Key Pause :    |%c %d|\n", BINDS[5], BINDS[4]);
+    special_print(options, "Key Left :    %s\n", 0);
+    special_print(options, "Key Right :    %s\n", 1);
+    special_print(options, "Key Turn :    %s\n", 2);
+    special_print(options, "Key Drop :    %s\n", 3);
+    special_print(options, "Key Quit :    %s\n", 4);
+    special_print(options, "Key Pause :    %s\n", 5);
     my_printf (1, "Next :    %s\n", (options->no_next ? "No": "Yes"));
     my_printf(1, "Level :    %d\n", options->level);
     my_printf (1, "dim :    %d*%d\n", options->dim.y, options->dim.x);
