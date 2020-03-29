@@ -6,10 +6,10 @@
 */
 
 #include <ncurses.h>
-#include "../../include/define.h"
-#include "../../include/minos.h"
-#include "../../include/library/_string/include/string.h"
-#include "../../include/my.h"
+#include "define.h"
+#include "minos.h"
+#include "library/_string/include/string.h"
+#include "my.h"
 
 static int minos_len(minos_t **minos)
 {
@@ -32,7 +32,7 @@ static minos_t *cpy_minos(minos_t *minos)
     ret->height = minos->height;
     ret->pos = minos->pos;
     ret->color = minos->color;
-    ret->collision = minos->collision;
+    ret->collision = (collision_t){false, false, false};
     ret->current = false;
     return (ret);
 }

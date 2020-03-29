@@ -5,9 +5,9 @@
 ** read tetris flags
 */
 
-#include "../../include/my.h"
-#include "../../include/regex.h"
-#include "../../include/minos.h"
+#include "my.h"
+#include "regex.h"
+#include "minos.h"
 #include <getopt.h>
 
 static int find_pos(char _char, char *str)
@@ -42,7 +42,7 @@ static int read_flags(int flags_tab[11], struct option long_options[],
 options_t *init_options(int ac, char **av)
 {
     options_t *options = malloc(sizeof(options_t));
-    int flags_tab[11] = {0, 260, 261, 259, 258, 'q', ' ', 0, 0, 10, 20};
+    int flags_tab[11] = {1, 260, 261, 259, 258, 'q', ' ', 0, 0, 10, 20};
     struct option long_options[] = {
         {"level", 1, 0, 0}, {"key-left", 1, 0, 0},
         {"key-right", 1, 0, 0}, {"key-turn", 1, 0, 0},

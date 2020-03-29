@@ -5,7 +5,7 @@
 ** regex utils
 */
 
-#include "../../include/regex.h"
+#include "regex.h"
 
 int format_string(char *format, char *expression)
 {

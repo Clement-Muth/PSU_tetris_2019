@@ -5,7 +5,7 @@
 ** take a string and glues it with a sep
 */
 
-#include "../../include/my.h"
+#include "my.h"
 
 char *my_glue_sep(char *path, char *name, char sep)
 {

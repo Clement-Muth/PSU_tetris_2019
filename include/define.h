@@ -20,6 +20,12 @@
 #define MAP GAME->game_arr
 #define R_BINDS root->option->binds
 
+#define DOWN GAME_CURRENT->pos.y + i
+#define CUR_POS GAME_CURRENT->pos.x + n
+#define LEFT CUR_POS - 1
+#define RIGHT CUR_POS + 1
+#define MINOS_COLL minos->minos[i][n] == '*'
+#define CURRENT_RIGHT GAME_CURRENT->minos[i][n] == '*'
 #define NB_ELEMENT 2
 #define MAP_POSITION_LEFT 35
 #define SECOND 1000000

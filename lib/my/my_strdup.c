@@ -5,7 +5,7 @@
 ** duplicates a string
 */
 
-#include "../../include/my.h"
+#include "my.h"
 
 char *my_strdup(char *str)
 {

@@ -5,7 +5,7 @@
 ** displays strings
 */
 
-#include "../../include/my.h"
+#include "my.h"
 #include <unistd.h>
 
 int my_putstr(int fd, char const *str)

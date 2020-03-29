@@ -6,7 +6,7 @@
 ** my_strcomp
 */
 
-#include "../../include/my.h"
+#include "my.h"
 
 int my_strcomp(char *string, char *testr)
 {

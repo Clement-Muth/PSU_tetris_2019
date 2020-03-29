@@ -5,8 +5,8 @@
 ** formats piece
 */
 
-#include "../../include/my.h"
-#include "../../include/minos.h"
+#include "my.h"
+#include "minos.h"
 
 static char *format_line(char *line, int width)
 {

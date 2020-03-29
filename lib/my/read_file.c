@@ -5,7 +5,7 @@
 ** read file and put it in a string
 */
 
-#include "../../include/my.h"
+#include "my.h"
 
 int get_fd(char *name)
 {

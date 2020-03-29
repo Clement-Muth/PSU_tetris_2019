@@ -5,7 +5,7 @@
 ** strcat
 */
 
-#include "../../include/my.h"
+#include "my.h"
 
 static char *first_action(char *str1, char *str2)
 {

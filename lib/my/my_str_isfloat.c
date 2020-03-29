@@ -5,7 +5,7 @@
 ** check if a string is a float
 */
 
-#include "../../include/my.h"
+#include "my.h"
 
 int my_str_isfloat(char const *str)
 {

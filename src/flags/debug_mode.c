@@ -5,8 +5,8 @@
 ** debug mode for tetris
 */
 
-#include "../../include/my.h"
-#include "../../include/minos.h"
+#include "my.h"
+#include "minos.h"
 static char *stringize(int c)
 {
     char *ret = malloc(2);
@@ -21,11 +21,8 @@ static char *my_translate(int c, int *good)
     int trans_i[5] = {32, 258, 259, 260, 261};
     char *trans_a[5] = {"(space)", "^EOB", "^EOA", "^EOD", "^EOC"};
 
-    for (int i = 0; i < 5; ++i) {
-        if (c == trans_i[i]) {
-            return(trans_a[i]);
-        }
-    }
+    for (int i = 0; i < 5; ++i)
+        if (c == trans_i[i]) return (trans_a[i]);
     *good = 1;
     return (stringize(c));
 }

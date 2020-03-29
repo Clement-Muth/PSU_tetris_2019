@@ -5,8 +5,8 @@
 ** rotates
 */
 
-#include "../../include/my.h"
-#include "../../include/minos.h"
+#include "my.h"
+#include "minos.h"
 
 static void copy_column(char **new, minos_t *minos, int i)
 {

@@ -5,8 +5,8 @@
 ** utilitaries for linked list
 */
 
-#include "../../include/my.h"
-#include "../../include/list.h"
+#include "my.h"
+#include "list.h"
 
 unsigned int list_len(list_t *list)
 {

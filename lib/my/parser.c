@@ -5,7 +5,7 @@
 ** take a string and transforms it into a char **
 */
 
-#include "../../include/my.h"
+#include "my.h"
 
 int count_words(char *str, char sep)
 {

@@ -5,7 +5,7 @@
 ** check if a string contains something
 */
 
-#include "../../include/my.h"
+#include "my.h"
 
 static int check_contains(char str, char *check)
 {

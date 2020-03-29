@@ -11,7 +11,7 @@ SRC	:=	count.c	\
 		regex.c	\
 		regex_utils.c	\
 
-CFLAGS	+=	-Wall -Werror
+CFLAGS	+=	-Wall -Werror -I../../include
 
 OBJ	:=	$(SRC:.c=.o)
 

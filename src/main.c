@@ -5,12 +5,12 @@
 ** main for the program
 */
 
-#include "../include/my.h"
-#include "../include/list.h"
-#include "../include/regex.h"
-#include "../include/minos.h"
-#include "../include/struct.h"
-#include "../include/define.h"
+#include "my.h"
+#include "list.h"
+#include "regex.h"
+#include "minos.h"
+#include "struct.h"
+#include "define.h"
 #include <time.h>
 
 static void free_root(root_t *root)
@@ -26,14 +26,15 @@ static void free_root(root_t *root)
     }
     freeif(root->option);
     freeif(root->game);
-    freeif(root);
 }
 
 static int all_right(minos_t **minos)
 {
     for (int i = 0; minos[i]; ++i) {
-        if (minos[i]->minos == NULL)
-        return (0);
+        if (minos[i]->minos == NULL) {
+            my_printf(1, "One of the pieces is incorrect\n");
+            return (0);
+        }
     }
     return (1);
 }

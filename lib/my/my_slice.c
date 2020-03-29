@@ -5,7 +5,7 @@
 ** slices a string
 */
 
-#include "../../include/my.h"
+#include "my.h"
 
 static char *slicer(char *str, int slice)
 {

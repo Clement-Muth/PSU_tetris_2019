@@ -5,7 +5,7 @@
 ** fillers
 */
 
-#include "../../include/regex.h"
+#include "regex.h"
 
 patterns_t *fill_pattern(char *expression)
 {

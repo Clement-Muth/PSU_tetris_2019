@@ -9,7 +9,7 @@ SRC	:=	list_actions.c	\
 		list_utils.c	\
 		node.c	\
 
-CFLAGS	+=	-Wall -Werror
+CFLAGS	+=	-Wall -Werror -I../../include
 
 OBJ	:=	$(SRC:.c=.o)
 

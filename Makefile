@@ -19,18 +19,18 @@ SRC	:=	$(FSRC)main.c	\
 		$(FFLAG)fill_flags.c	\
 		$(FFLAG)adapt_flags.c	\
 		$(FFLAG)debug_mode.c	\
-		$(FCURSE)init_curse.c	\
-		$(FCURSE)process_curse.c	\
-		$(FCURSE)utilities_curse.c	\
+		$(FCURSE)init/init_curse.c	\
+		$(FCURSE)process/process_curse.c	\
+		$(FCURSE)get/utilities_curse.c	\
 		$(FCURSE)display/display_game.c	\
 		$(FCURSE)process/process_display.c	\
 		$(FCURSE)process/process_next_minos.c	\
-		$(FCURSE)create_map.c	\
-		$(FCURSE)checker.c	\
-		$(FCURSE)print_timer.c	\
-		$(FCURSE)get_inputs.c	\
+		$(FCURSE)process/process_collisions.c	\
+		$(FCURSE)init/create_map.c	\
+		$(FCURSE)check/checker.c	\
+		$(FCURSE)display/print_timer.c	\
+		$(FCURSE)get/get_inputs.c	\
 		$(FMINOS)read_minos.c	\
-		$(FMINOS)checker.c	\
 		$(FMINOS)count_asterisk.c	\
 		$(FMINOS)fill_minos.c	\
 		$(FMINOS)format_piece.c	\
@@ -40,6 +40,7 @@ SRC	:=	$(FSRC)main.c	\
 		$(FMINOS)next_tab.c	\
 		$(FMINOS)rotate_minos.c	\
 		$(FMINOS)free_minos.c	\
+		$(FMINOS)checker.c	\
 
 NAME	:=	tetris
 
@@ -70,7 +71,7 @@ $(NAME):	make_all $(OBJ)
 	@echo -e "$(CLEAR)$(NAME) : $(COLOR)OK$(WHITE)"
 
 %.o:	%.c
-	@$(CC) -o $@ -c $< $(CFLAGS)
+	@$(CC) -o $@ -c $< -g -Iinclude/ $(CFLAGS)
 	@echo -ne "$(CLEAR)Compiled $< : $(COLOR)OK$(WHITE)\r"
 
 clean:	make_clean

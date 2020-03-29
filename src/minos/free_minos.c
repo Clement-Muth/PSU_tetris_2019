@@ -5,8 +5,8 @@
 ** frees a piece
 */
 
-#include "../../include/my.h"
-#include "../../include/minos.h"
+#include "my.h"
+#include "minos.h"
 
 void
 destroy_minos(minos_t *minos)

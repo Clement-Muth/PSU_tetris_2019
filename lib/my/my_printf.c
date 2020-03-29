@@ -6,7 +6,7 @@
 */
 
 #include <stdarg.h>
-#include "../../include/my.h"
+#include "my.h"
 
 static int pr_putc(int fd, va_list list)
 {

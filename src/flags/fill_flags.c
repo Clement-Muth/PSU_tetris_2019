@@ -5,8 +5,8 @@
 ** fill tetris flags
 */
 
-#include "../../include/my.h"
-#include "../../include/regex.h"
+#include "my.h"
+#include "regex.h"
 
 static int choose_level(int flags_tab[11], char *arg)
 {

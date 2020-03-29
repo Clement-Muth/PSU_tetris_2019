@@ -5,12 +5,11 @@
 ** create_map
 */
 
-#include "../../include/my.h"
-#include "../../include/define.h"
-#include "../../include/minos.h"
+#include "my.h"
+#include "define.h"
+#include "minos.h"
 
-static void
-middle(root_t *root, char **tab, char *texture)
+static void middle(root_t *root, char **tab, char *texture)
 {
     int height = ODIM.y + 2;
     int width = ODIM.x * 2 - 1;
@@ -25,8 +24,7 @@ middle(root_t *root, char **tab, char *texture)
     }
 }
 
-static void
-top_bottom(root_t *root, char **tab, char *texture)
+static void top_bottom(root_t *root, char **tab, char *texture)
 {
     int height = ODIM.y + 2;
     int width = ODIM.x * 2 - 1;
@@ -43,8 +41,7 @@ top_bottom(root_t *root, char **tab, char *texture)
     tab[height - 1][width] = '\0';
 }
 
-char **
-create_map(root_t *root)
+char **create_map(root_t *root)
 {
     char **map = malloc(sizeof(char *) * (ODIM.y + 3));
 

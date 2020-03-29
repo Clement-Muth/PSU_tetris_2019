@@ -5,7 +5,7 @@
 ** getters
 */
 
-#include "../../include/regex.h"
+#include "regex.h"
 
 patterns_t ***get_patterns(char *expression)
 {

@@ -5,8 +5,8 @@
 ** list events
 */
 
-#include "../../include/my.h"
-#include "../../include/list.h"
+#include "my.h"
+#include "list.h"
 
 void list_insert(list_t **this, list_t *node, int place)
 {

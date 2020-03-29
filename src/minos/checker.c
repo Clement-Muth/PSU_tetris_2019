@@ -5,8 +5,8 @@
 ** checks if the file is correct
 */
 
-#include "../../include/my.h"
-#include "../../include/minos.h"
+#include "my.h"
+#include "minos.h"
 
 static int get_number(char **fline, char *_int)
 {

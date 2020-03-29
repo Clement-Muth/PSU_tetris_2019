@@ -5,7 +5,7 @@
 ** handles flags
 */
 
-#include "../../include/my.h"
+#include "my.h"
 
 static int checker(char *str, char **flags)
 {

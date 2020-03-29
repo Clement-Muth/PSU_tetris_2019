@@ -6,10 +6,12 @@
 */
 
 #include "string.h"
+#define EQUAL compared[i] == comparing[i]
+#define EXIST compared[i] && comparing[i]
 
 bool
 _strcmp(const char *restrict comparing, const char *restrict compared)
 {
-    while (*compared++ == *comparing++ && *compared && *comparing);
-    return (*compared == 0) ? (true) : (false);
+    for (int i = 0; EQUAL && EXIST; i++);
+    return (*comparing && *compared == 0) ? (true) : (false);
 }

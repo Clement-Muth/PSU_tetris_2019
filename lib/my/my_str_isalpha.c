@@ -5,7 +5,7 @@
 ** checks if a string is only alphanumberic
 */
 
-#include "../../include/my.h"
+#include "my.h"
 
 int my_str_isalpha(char const *str)
 {

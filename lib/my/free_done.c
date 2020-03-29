@@ -5,7 +5,7 @@
 ** free whats done
 */
 
-#include "../../include/my.h"
+#include "my.h"
 
 void free_done(void **thing, int done)
 {

@@ -5,7 +5,7 @@
 ** gets a float from a string
 */
 
-#include "../../include/my.h"
+#include "my.h"
 
 int neg_check(char c)
 {

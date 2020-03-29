@@ -54,6 +54,7 @@ typedef struct game_s
     bool in_game;
     char **game_arr;
     clock_t timerclock;
+    int score;
     minos_t *cur;
     minos_t *next;
     _clock_t clock;

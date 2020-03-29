@@ -5,8 +5,8 @@
 ** adapt_minos
 */
 
-#include "../../include/my.h"
-#include "../../include/minos.h"
+#include "my.h"
+#include "minos.h"
 
 static void swap(minos_t **first, minos_t **second)
 {

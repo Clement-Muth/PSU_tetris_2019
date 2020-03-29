@@ -5,8 +5,8 @@
 ** adapt flags to options_t
 */
 
-#include "../../include/my.h"
-#include "../../include/tetris.h"
+#include "my.h"
+#include "tetris.h"
 
 void adapt_flags(options_t *options, int flags_tab[11])
 {

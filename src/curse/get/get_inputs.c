@@ -5,18 +5,18 @@
 ** gets inputs
 */
 
-#include "../../include/my.h"
-#include "../../include/define.h"
-#include "../../include/minos.h"
-#include "../../lib/_string/include/string.h"
+#include "my.h"
+#include "define.h"
+#include "minos.h"
+#include "library/_string/include/string.h"
 
 static int lr_move(root_t *root, minos_t *minos, uint8_t action)
 {
-    if (action == 0)
+    if (action == false)
         minos->pos.x -= (minos->pos.x > 2) ? 2 : 0;
     else
         minos->pos.x += (minos->pos.x + (minos->height * 2)
-            < (ODIM.x * 2) - 4) ? 2 : 0;
+            < (ODIM.x * 2) - 2) ? 2 : 0;
     return (0);
 }
 
@@ -65,6 +65,7 @@ int get_inputs(root_t *root)
     key = getch();
     if (key == ERR)
         return (0);
+    if (key == 4) return (1);
     if (process_actions(root, key))
         return (1);
     return (0);

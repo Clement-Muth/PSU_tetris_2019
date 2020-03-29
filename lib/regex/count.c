@@ -5,7 +5,7 @@
 ** count
 */
 
-#include "../../include/regex.h"
+#include "regex.h"
 
 int count_sep(char *expression)
 {

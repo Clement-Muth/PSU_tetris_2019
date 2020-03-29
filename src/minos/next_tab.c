@@ -5,8 +5,8 @@
 ** next_tab
 */
 
-#include "../../include/my.h"
-#include "../../include/minos.h"
+#include "my.h"
+#include "minos.h"
 
 static void fill_middle(char **tab, char width, char height)
 {

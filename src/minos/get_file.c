@@ -5,8 +5,7 @@
 ** get_file
 */
 
-#include "../../include/my.h"
-
+#include "my.h"
 
 char **get_file(char *filename)
 {

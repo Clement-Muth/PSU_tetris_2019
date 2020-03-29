@@ -5,8 +5,8 @@
 ** nodes event
 */
 
-#include "../../include/my.h"
-#include "../../include/list.h"
+#include "my.h"
+#include "list.h"
 
 list_t *create_node(char *string)
 {

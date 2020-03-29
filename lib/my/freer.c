@@ -5,7 +5,7 @@
 ** frees if it exist
 */
 
-#include "../../include/my.h"
+#include "my.h"
 #include <stdarg.h>
 
 int freeif(void *elem)

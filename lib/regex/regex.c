@@ -5,7 +5,7 @@
 ** regex
 */
 
-#include "../../include/regex.h"
+#include "regex.h"
 
 regex_t create_regex(char *expression)
 {

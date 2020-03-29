@@ -5,8 +5,8 @@
 ** read tetriminos
 */
 
-#include "../../include/my.h"
-#include "../../include/minos.h"
+#include "my.h"
+#include "minos.h"
 #include <dirent.h>
 
 minos_t *read_minos(char *directory, vector2_t dim)

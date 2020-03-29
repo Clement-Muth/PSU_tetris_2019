@@ -15,3 +15,4 @@
 #include <fcntl.h>
 #include "curses.h"
 #include <ncurses.h>
+#include <time.h>

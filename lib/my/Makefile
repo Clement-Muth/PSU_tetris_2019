@@ -33,7 +33,7 @@ SRC	:=	my_putchar.c	\
 		square.c	\
 		free_done.c	\
 
-CFLAGS	+=	-Wall -Werror
+CFLAGS	+=	-Wall -Werror -I../../include
 
 OBJ	:=	$(SRC:.c=.o)
 

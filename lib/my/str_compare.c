@@ -5,7 +5,7 @@
 ** compare two string in alphabetical order
 */
 
-#include "../../include/my.h"
+#include "my.h"
 
 int str_compare(char *str1, char *str2)
 {

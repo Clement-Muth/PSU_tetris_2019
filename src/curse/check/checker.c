@@ -5,15 +5,15 @@
 ** checker
 */
 
-#include "../../include/define.h"
-#include "../../include/minos.h"
-#include "../../lib/_string/include/string.h"
+#include "define.h"
+#include "minos.h"
+#include "library/_string/include/string.h"
 
 static void
 destroy_line(char **map, int line)
 {
     while (line) {
-        for (int i = 0; map[line][i]; ++i)
+        for (int i = 1; map[line][i]; ++i)
             map[line][i] = (line != 1) ? (map[line - 1][i]) : ' ';
         --line;
     }
@@ -26,18 +26,21 @@ is_filled(root_t *root, char *line)
 
     for (int i = 0; line[i]; ++i)
         ret += (line[i] == '*');
-    return (ret == ODIM.x);
+    return (ret == ODIM.x - 1);
 }
 
 int
 check_lines(root_t *root)
 {
-    int down = ODIM.y - 2;
+    int down = ODIM.y;
+    int score = 0;
 
     while (down) {
-        while (is_filled(root, GAME->game_arr[down]))
+        while (is_filled(root, GAME->game_arr[down])) {
             destroy_line(GAME->game_arr, down);
+            score += 1;
+        }
         --down;
     }
-    return (0);
+    return (score);
 }

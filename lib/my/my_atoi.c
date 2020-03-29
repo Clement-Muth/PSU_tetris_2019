@@ -5,7 +5,7 @@
 ** reproduces atoi function
 */
 
-#include "../../include/my.h"
+#include "my.h"
 
 int my_atoi(char const *str)
 {

@@ -5,8 +5,8 @@
 ** prints a timer
 */
 
-#include "../../include/my.h"
-#include "../../include/struct.h"
+#include "my.h"
+#include "struct.h"
 #include <stdio.h>
 #include <time.h>
 #include <unistd.h>

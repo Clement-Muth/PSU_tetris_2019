@@ -5,7 +5,7 @@
 ** checks for the hel flag
 */
 
-#include "../../include/my.h"
+#include "my.h"
 #include "../../lib/_open/include/openf.h"
 
 static void print_help(void)

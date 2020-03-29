@@ -5,7 +5,7 @@
 ** copies
 */
 
-#include "../../include/my.h"
+#include "my.h"
 
 int my_strcpy(char *dest, char *src)
 {

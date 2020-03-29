@@ -5,8 +5,8 @@
 ** fill linked list
 */
 
-#include "../../include/my.h"
-#include "../../include/minos.h"
+#include "my.h"
+#include "minos.h"
 
 static void add_minos(minos_t **minos, char *filename, vector2_t dim)
 {
@@ -24,7 +24,9 @@ static void add_minos(minos_t **minos, char *filename, vector2_t dim)
     new->name = my_strndup(filename, my_strfind(filename, ".tetrimino"));
     new->next = *minos;
     new->pos.x = ((dim.x) - (new->width + 1));
+    new->pos.x += (!(new->pos.x & 1));
     new->pos.y = 1;
+    new->collision = (collision_t){false, false, false};
     new->current = false;
     *minos = new;
     multi_free("2", file);
@@ -47,8 +49,6 @@ static int is_ext(char *str, char *ext)
 
 int fill_minos(minos_t **minos, char *name, vector2_t dim)
 {
-    if (is_ext(name, ".tetrimino")) {
-        add_minos(minos, name, dim);
-    }
+    if (is_ext(name, ".tetrimino")) add_minos(minos, name, dim);
     return (0);
 }

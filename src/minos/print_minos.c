@@ -5,8 +5,8 @@
 ** prints all pieces
 */
 
-#include "../../include/my.h"
-#include "../../include/minos.h"
+#include "my.h"
+#include "minos.h"
 
 static int line_length(char *line)
 {

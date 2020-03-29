@@ -5,7 +5,7 @@
 ** finds a word in a string
 */
 
-#include "../../include/my.h"
+#include "my.h"
 
 int part_comp(char *str, char *look)
 {

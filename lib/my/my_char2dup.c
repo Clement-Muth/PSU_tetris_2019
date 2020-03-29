@@ -5,7 +5,7 @@
 ** duplicates a char **
 */
 
-#include "../../include/my.h"
+#include "my.h"
 
 char **my_char2dup(char **array)
 {
