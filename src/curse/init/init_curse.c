@@ -17,6 +17,7 @@ init_curse_struct(root_t *root)
     GAME->in_game = true;
     GAME->timerclock = clock();
     GAME->score = 0;
+    GAME->lines = 0;
     ELEMENT.filepath = malloc(sizeof(char *) * 2);
     ELEMENT.filepath[0] = "data/title_game.txt";
     ELEMENT.filepath[1] = "data/score.txt";

@@ -20,6 +20,5 @@ int my_revstr(char *str)
         str[i] = str[--len];
         str[len] = tmp;
     }
-    printf ("reversed = %s\n", str);
     return (0);
 }

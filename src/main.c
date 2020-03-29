@@ -12,6 +12,7 @@
 #include "struct.h"
 #include "define.h"
 #include <time.h>
+#include <SFML/Graphics.h>
 
 static void free_root(root_t *root)
 {

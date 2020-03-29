@@ -11,10 +11,11 @@
 #include "struct.h"
 #include "library/_string/include/string.h"
 
-static int process_descent_minos(game_t *game, minos_t *minos)
+static int process_descent_minos(root_t *root)
 {
-    if (!COLLISION.down) {
-        minos->pos.y++;
+    CLOCK.begin = clock();
+    if (!GAME_CURRENT->collision.down) {
+        GAME_CURRENT->pos.y++;
         return (false);
     } else
         return (true);
@@ -44,13 +45,11 @@ void process_curse(root_t *root)
     while (GAME->in_game) {
         process_display(root, next_tab);
         GAME->lines += check_lines(root);
-        if (get_inputs(root)) return;
         CLOCK.ellapsed = clock() - CLOCK.begin;
+        if (get_inputs(root)) return;
         process_collisions(root);
-        if (CLOCK.ellapsed > CLOCK.level_time_descent) {
-            GAME_CURRENT->current = process_descent_minos(GAME, GAME_CURRENT);
-            CLOCK.begin = clock();
-        }
+        if (CLOCK.ellapsed > CLOCK.level_time_descent)
+            GAME_CURRENT->current = process_descent_minos(root);
         if (GAME_CURRENT->current) {
             process_next_minos(root, &next_tab);
             clear();

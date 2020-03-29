@@ -26,7 +26,6 @@ char *my_slice(char *str, int start, int end)
 {
     int len = my_strlen(str);
 
-    printf ("%s  %d  %d\n", str + start, start, end);
     if (str == NULL || start < 0 || start >= len)
         return (NULL);
     if (end == 0)
@@ -35,7 +34,6 @@ char *my_slice(char *str, int start, int end)
         return (NULL);
     end = end - start;
     len = my_strlen(str + start);
-    printf ("%s\n", str+start);
     if (len > end)
         len = end;
     return (slicer(str, len));

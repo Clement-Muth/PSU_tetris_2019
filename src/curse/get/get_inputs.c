@@ -33,17 +33,16 @@ static uint8_t which_action(root_t *root, int key)
 
 static void rotate(root_t *root)
 {
-    /*
     int width = GAME_CURRENT->pos.x + GAME_CURRENT->height * 2;
     int height = GAME_CURRENT->pos.y + GAME_CURRENT->width;
 
     if (height >= ODIM.x * 2 || width > ODIM.y)
-    for (int i = GAME_CURRENT->pos.y; i < ODIM.y && i < height)
+        return;
+    for (int i = GAME_CURRENT->pos.y; i < ODIM.y && i < height; ++i)
         for (int n = GAME_CURRENT->pos.x; n < ODIM.x && n < width; ++n) {
             if (MAP[n][i] != ' ')
                 return;
         }
-        */
     rotate_minos(GAME_CURRENT);
 }
 
@@ -59,7 +58,7 @@ static int process_actions(root_t *root, int key)
         rotate(root);
         break;
     case 3:
-        CLOCK.ellapsed = CLOCK.level_time_descent + 1;
+        CLOCK.ellapsed = CLOCK.level_time_descent + 10;
         break;
     case 4:
         while (getch() == ERR)

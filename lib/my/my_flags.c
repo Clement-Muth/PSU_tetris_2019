@@ -28,7 +28,6 @@ int is_flag(char *str, char *flags[FLAGS_LINES][FLAGS_COL])
 
 static int single_checker(char _char, char *flags)
 {
-    printf ("checking %c with %s\n", _char, flags);
     for (int i = 0; flags[i]; ++i) {
         if (flags[i] == _char)
             return (1);

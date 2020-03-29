@@ -14,9 +14,16 @@
 
 void process_next_minos(root_t *root, char ***next_tab)
 {
+    int leave = GAME_CURRENT->pos.y == 1;
+
     add_to_map(GAME, root->option, GAME_CURRENT);
     multi_free("2", *next_tab);
     destroy_minos(GAME_CURRENT);
+    if (leave) {
+        destroy_minos(GAME_NEXT);
+        GAME->in_game = false;
+        return;
+    }
     GAME_CURRENT = GAME->next;
     GAME->next = get_random(root->option->minos);
     *next_tab = create_next_tab(GAME->next);
