@@ -55,6 +55,7 @@ void
 display_map(root_t *root)
 {
     for (int i = 0; MAP[i]; i++)
-        for (int n = 0; MAP[i][n]; n++)
+        for (int n = 0; MAP[i][n]; n++) {
             mvaddch(i, n + 36, MAP[i][n]);
+        }
 }

@@ -12,11 +12,10 @@
 
 static int lr_move(root_t *root, minos_t *minos, uint8_t action)
 {
-    if (action == false)
-        minos->pos.x -= (minos->pos.x > 2) ? 2 : 0;
-    else
-        minos->pos.x += (minos->pos.x + (minos->height * 2)
-            < (ODIM.x * 2) - 2) ? 2 : 0;
+    if (action == false) {
+        minos->pos.x -= (minos->collision.left) ? 0 : 2;
+    } else
+        minos->pos.x += (minos->collision.right) ? 0 : 2;
     return (0);
 }
 
@@ -32,6 +31,22 @@ static uint8_t which_action(root_t *root, int key)
     return (action);
 }
 
+static void rotate(root_t *root)
+{
+    /*
+    int width = GAME_CURRENT->pos.x + GAME_CURRENT->height * 2;
+    int height = GAME_CURRENT->pos.y + GAME_CURRENT->width;
+
+    if (height >= ODIM.x * 2 || width > ODIM.y)
+    for (int i = GAME_CURRENT->pos.y; i < ODIM.y && i < height)
+        for (int n = GAME_CURRENT->pos.x; n < ODIM.x && n < width; ++n) {
+            if (MAP[n][i] != ' ')
+                return
+        }
+        */
+    rotate_minos(GAME_CURRENT);
+}
+
 static int process_actions(root_t *root, int key)
 {
     uint8_t action = which_action(root, key);
@@ -41,7 +56,7 @@ static int process_actions(root_t *root, int key)
         lr_move(root, GAME_CURRENT, action);
         break;
     case 2:
-        rotate_minos(GAME_CURRENT);
+        rotate(root);
         break;
     case 3:
         CLOCK.ellapsed = CLOCK.level_time_descent + 1;

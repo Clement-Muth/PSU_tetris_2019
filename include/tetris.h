@@ -41,7 +41,7 @@ minos_t *read_minos(char *directory, vector2_t dim);
 
 int check_lines(root_t *root);
 int get_inputs(root_t *root);
-void procedd_collisions(root_t *root);
+void process_collisions(root_t *root);
 
 /*          Process_display         */
 void process_display(root_t *root, char **next_tab);

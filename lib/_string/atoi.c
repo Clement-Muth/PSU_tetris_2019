@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2020
 ** CPE_dante_2019 [WSL: Debian]
 ** File description:
-** atoi
+** _atoi
 */
 
 #include "string.h"

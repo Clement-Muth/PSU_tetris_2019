@@ -15,10 +15,10 @@ static void set_collisions(root_t *root, int i)
     for (int n = 0; GAME_CURRENT->minos[i][n]; n++) {
         if (CURRENT_RIGHT && MAP[DOWN + 1][CUR_POS] != ' ')
             GAME_CURRENT->collision.down = true;
-        if (CURRENT_RIGHT && (MAP[DOWN][LEFT] == '|' || MAP[DOWN][LEFT + 1] == '*'))
-            GAME_CURRENT->collision.left = true;
-        if (CURRENT_RIGHT && (MAP[DOWN][RIGHT] == '|' || MAP[DOWN][LEFT + 1] == '*'))
+        if (RIGHT_HAS_COLLISION)
             GAME_CURRENT->collision.right = true;
+        if (LEFT_HAS_COLLISION)
+            GAME_CURRENT->collision.left = true;
     }
 }
 

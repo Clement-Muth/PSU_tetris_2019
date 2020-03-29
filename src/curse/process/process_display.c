@@ -11,8 +11,7 @@
 #include "minos.h"
 #include "library/_string/include/string.h"
 
-void
-process_display(root_t *root, char **next_tab)
+void process_display(root_t *root, char **next_tab)
 {
     for (int i = 0; i != NB_ELEMENT; i++)
         print_game_elements(ELEMENT.filepath[i], ELEMENT.position[i]);
@@ -20,5 +19,7 @@ process_display(root_t *root, char **next_tab)
     display_map(root);
     display_tetriminos(GAME_CURRENT);
     mvprintw(10, 10, "%d", GAME->score);
-    print_time(&GAME->timerclock, (vector2_t){15, 15});
+    mvprintw(12, 10, "%d", GAME->lines);
+    mvprintw(13, 10, "%d", OPT->level);
+    print_time(&GAME->timerclock, (vector2_t){19, 15});
 }

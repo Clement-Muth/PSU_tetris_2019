@@ -43,7 +43,7 @@ void process_curse(root_t *root)
     next_tab = create_next_tab(GAME_NEXT);
     while (GAME->in_game) {
         process_display(root, next_tab);
-        GAME->score += check_lines(root);
+        GAME->lines += check_lines(root);
         if (get_inputs(root)) return;
         CLOCK.ellapsed = clock() - CLOCK.begin;
         process_collisions(root);
