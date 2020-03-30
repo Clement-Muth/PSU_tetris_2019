@@ -47,7 +47,6 @@ static void ask_resize(root_t *root)
 void process_curse(root_t *root)
 {
     char **next_tab;
-
     GAME_CURRENT = get_random(OPT->minos);
     GAME_NEXT = get_random(OPT->minos);
     next_tab = create_next_tab(GAME_NEXT);
